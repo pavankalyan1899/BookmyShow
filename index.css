@@ -1,0 +1,27 @@
+.cont-item {
+    width: 20%;
+    height: auto;
+    margin: 10px;
+
+}
+
+#cont {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+#navbar {
+    background: rgb(230, 14, 14);
+
+}
+
+.nav-link :hover {
+    background-color: red;
+}
+
+.bg-black {
+    background-color: black;
+
+}

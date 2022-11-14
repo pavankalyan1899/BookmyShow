@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+
+    <label for="" class="today-date">
+        <input type="date" name="" id="date-type">
+
+    </label>
+    <div>
+        <div id="cont"> </div>
+        <div id="cont1"> </div>
+    </div>
+
+    <a href="show.html"><button id="btn-dlt" type="button" class="btn btn-danger">book your Show</button></a>
+    <script>
+        var url_string = window.location;
+        var url = new URL(url_string);
+
+        var mid = url.searchParams.get("id");
+        console.log(mid);
+        var settings = {
+
+
+            "url": `https://api-gate2.movieglu.com/filmShowTimes/?n=20&film_id=${mid}&date=2022-06-07`,
+
+
+            "method": "GET",
+
+
+            "timeout": 0,
+            "headers": {
+                "api-version": "v200",
+
+                "Access-Control-Allow-origin": "*",
+                "Authorization": "Basic UEVPUDo4T3l1T1EyWlRLRUo=",
+                "client": "PEOP",
+                "x-api-key": "7dhFPQ2vp4812JMlW5HNg3r1g5NrHzNV6MRA4QhB",
+                "device-datetime": "2022-06-06T10:08:29.530Z",
+                "geolocation": "17.387;78.491",
+                "territory": "IN",
+            },
+        };
+        $.ajax({
+            url: 'url',
+            // headers: { 'Access-Control-Allow-Origin': '*' },
+            // data: data,
+            type: 'GET',
+            /* etc */
+            dataType: "jsonp",
+            contentType: "applicaton/json",
+            crossDomain: true,
+            success: function (data) {
+
+            }
+        })
+
+        $.ajax(settings).done(function (response) {
+
+            console.log(response);
+            responseArr = [response]
+            console.log(responseArr);
+            // let output = '';
+
+            // responseArr[0].cinemas.forEach(item => {
+            //     output += `
+            //      <h1>${item.cinema_name}</h1>
+            //     //  <h1>${item.showings.Other.times.start_time}</h1>
+
+            //     `
+            //     document.querySelector('#cont').innerHTML = output
+
+        });
+
+
+    </script>
+</body>
+
+</html>
